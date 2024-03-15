@@ -1,3 +1,18 @@
 .App {
+  margin: 5%;
+}
+
+body {
+  background-color: #A39E92;
+}
+
+button {
+  width: fit-content;
+  background-color: #3E362F;
+  color: white;
   text-align: center;
+}
+
+input {
+  width: 250px;
 }

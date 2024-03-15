@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
   const [inputOne, setInputOne] = useState('');
@@ -84,26 +85,39 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        value={inputOne}
-        onChange={(e) => setInputOne(e.target.value)}
-      />
-      <input
-        type="text"
-        value={inputTwo}
-        onChange={(e) => setInputTwo(e.target.value)}
-      />
-      <button onClick={handleButtonClick}>Build</button>
-      <button onClick={handleButtonStartClick}>Start</button>
-      <button onClick={handleButtonStopClick}>Stop</button>
-      <button onClick={handleButtonDashboardClick}>Dashboard</button>
-      <input
-        type="text"
-        value={inputThree}
-        onChange={(e) => setInputThree(e.target.value)}
-      />
-      <button onClick={handleButtonDeleteClick}>Delete Pod</button>
+      <header>
+        <h2>Developer Deployment UI</h2>
+      </header>
+      <div className='buttonLine'>
+        <p>Use these to start the minikube environment, stop it, or open the web app dashboard.</p>
+        <p>*Note that docker desktop must be open on your local machine.</p>
+        <button onClick={handleButtonStartClick}>Start</button>
+        <button onClick={handleButtonStopClick}>Stop</button>
+        <button onClick={handleButtonDashboardClick}>Dashboard</button>
+      </div>
+      <div className="buildLine">
+        <p>Input a github http clone link for a repository with a dockerfile and yaml file, and then enter what you want the pod to be named. </p>
+        <input
+          type="text"
+          value={inputOne}
+          onChange={(e) => setInputOne(e.target.value)}
+        />
+        <input
+          type="text"
+          value={inputTwo}
+          onChange={(e) => setInputTwo(e.target.value)}
+        />
+        <button onClick={handleButtonClick}>Build</button>
+      </div>
+      <div className='deleteLine'>
+        <p>Enter the name of a pod to stop and delete from the minikube environment.</p>
+        <input
+          type="text"
+          value={inputThree}
+          onChange={(e) => setInputThree(e.target.value)}
+        />
+        <button onClick={handleButtonDeleteClick}>Delete Pod</button>
+      </div>
     </div>
   );
 }
